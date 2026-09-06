@@ -1,0 +1,38 @@
+{
+  "_comment": "SERVER-ONLY. Do not move this file under /public. Never send this file's contents to any client response.",
+  "codes": [
+    {
+      "accepted_answers": ["0716980217"],
+      "unlock_key": "incident",
+      "response_message": "INCIDENT REPORT CCD-0217 RESTORED.",
+      "requires": []
+    },
+    {
+      "accepted_answers": ["VALE"],
+      "unlock_key": "personnel",
+      "response_message": "PERSONNEL RECORD CCD-0417 RESTORED.",
+      "requires": ["incident"]
+    },
+    {
+      "accepted_answers": ["110487"],
+      "unlock_key": "audio",
+      "response_message": "AUDIO LABORATORY ACCESS RESTORED.",
+      "requires": ["personnel"]
+    },
+    {
+      "accepted_answers": ["FLOORZERO"],
+      "unlock_key": "restricted",
+      "response_message": "LEVEL 7 ACCESS ACCEPTED. DEPARTMENT OWNERSHIP CHANGED.",
+      "requires": ["audio"]
+    }
+  ],
+  "true_transcripts": {
+    "vale-fragment-reversed": "THIS IS DOCTOR ELIAS VALE. THE ANSWER IS FLOOR ZERO. DO NOT TRUST THE SECOND DEPARTMENT."
+  },
+  "stream_access_rules": {
+    "secret_vale_recovery": { "requires": ["personnel"] },
+    "secret_archive_minus_one": { "requires": ["audio"] },
+    "secret_floor_zero_override": { "requires": ["restricted"] },
+    "secret_transmission_zero": { "requires": ["restricted"] }
+  }
+}

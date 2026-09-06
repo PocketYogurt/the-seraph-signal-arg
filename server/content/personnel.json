@@ -1,0 +1,75 @@
+[
+  {
+    "id": "CCD-0417",
+    "name": "Dr Elias Vale",
+    "role": "Lead Signal Researcher",
+    "date_of_entry": "11-04-87",
+    "status_a": "DECEASED",
+    "status_b": "ACTIVE",
+    "clearance": "Level 7",
+    "notes": "Conflicting status between Department A and B.",
+    "publish_state": "published",
+    "unlock_requires": ["incident"],
+    "hidden_clue": "date_of_entry"
+  },
+  {
+    "id": "CCD-0001",
+    "name": "Subject One",
+    "role": "Human Relay / Origin Record",
+    "date_of_entry": "UNRECORDED",
+    "status_a": "CONTAINED",
+    "status_b": "DISTRIBUTED",
+    "clearance": "Level 7",
+    "notes": "Designation may refer to more than one person.",
+    "publish_state": "published",
+    "unlock_requires": ["restricted"]
+  },
+  {
+    "id": "CCD-0716",
+    "name": "Mara Venn",
+    "role": "EIS Channel 7 Announcer",
+    "date_of_entry": "UNKNOWN",
+    "status_a": "MISSING",
+    "status_b": "MISSING",
+    "clearance": "Level 4",
+    "notes": "Voice continues after disappearance.",
+    "publish_state": "published",
+    "unlock_requires": []
+  },
+  {
+    "id": "CCD-0217",
+    "name": "Jonah Krell",
+    "role": "Floor Zero Technician",
+    "date_of_entry": "UNKNOWN",
+    "status_a": "UNRECORDED",
+    "status_b": "UNRECORDED",
+    "clearance": "Level 5",
+    "notes": "Appears in staff photograph but not payroll.",
+    "publish_state": "published",
+    "unlock_requires": []
+  },
+  {
+    "id": "CCD-1187",
+    "name": "Iris Hall",
+    "role": "Archive Recovery Officer",
+    "date_of_entry": "UNKNOWN",
+    "status_a": "ACTIVE",
+    "status_b": "ACTIVE",
+    "clearance": "Level 3",
+    "notes": "May be the original broadcaster.",
+    "publish_state": "published",
+    "unlock_requires": []
+  },
+  {
+    "id": "CCD-B001",
+    "name": "Director Null",
+    "role": "Department B Administrator",
+    "date_of_entry": "UNKNOWN",
+    "status_a": "UNKNOWN",
+    "status_b": "ACTIVE",
+    "clearance": "UNKNOWN",
+    "notes": "No biological record; name may be a system placeholder.",
+    "publish_state": "published",
+    "unlock_requires": ["restricted"]
+  }
+]

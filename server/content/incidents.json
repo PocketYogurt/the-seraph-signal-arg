@@ -1,0 +1,61 @@
+[
+  {
+    "id": "CCD-0217",
+    "title": "THE FIRST RESPONSE",
+    "date_time": "07-16-98 02:17",
+    "location": "Channel 7 Broadcast Facility",
+    "classification": "Level 7",
+    "publish_state": "published",
+    "unlock_requires": ["incident"],
+    "puzzle_note": "First letters of the four body_a paragraphs spell VALE.",
+    "body_a": [
+      "Voiceprint analysis of the 02:17 broadcast returned no match against any registered Department speaker. The transmission was logged as originating from inside the receiver rather than from the tower.",
+      "Attending technicians reported that the signal answered questions before they were asked aloud. Two of three technicians on shift have since been reclassified as unavailable for further interview.",
+      "Local power and communications remained undisturbed throughout the incident, which the Department considers more concerning than a full outage would have been.",
+      "Every clock in the facility independently failed at 02:17 and did not resume until the signal ceased. The Department's official position is that this was a coincidence."
+    ],
+    "body_b": [
+      "Voice match was never attempted. Department A's claim of an inconclusive voiceprint is itself unverifiable, as the original audio has no chain of custody before 04:40.",
+      "All three technicians on shift that night are, as of this record, alive and reachable. Department A's personnel notes are considered unreliable.",
+      "The facility did lose power for eleven seconds at 02:17. Department A's record omits this.",
+      "The 02:17 clock failure is consistent across every Department A and B facility on record, which Department B considers evidence of a shared cause rather than a coincidence."
+    ],
+    "redactions": ["Witness list withheld pending Level 7 clearance."]
+  },
+  {
+    "id": "CCD-0643",
+    "title": "FALSE SUNRISE",
+    "date_time": "07-17-98 06:43",
+    "location": "Residential sector, unspecified",
+    "classification": "Level 4",
+    "publish_state": "published",
+    "unlock_requires": [],
+    "body_a": ["Daylight appeared roughly ninety minutes before the recorded sunrise time. Shadows throughout the affected area pointed toward, rather than away from, the light source."],
+    "body_b": ["Department A's account omits that several residents left their homes and did not return. Department B does not consider this an atmospheric event."],
+    "redactions": []
+  },
+  {
+    "id": "CCD-F0",
+    "title": "FLOOR ZERO ACCESS",
+    "date_time": "UNDATED",
+    "location": "Channel 7 Broadcast Facility",
+    "classification": "Level 7",
+    "publish_state": "published",
+    "unlock_requires": ["audio"],
+    "body_a": ["An elevator panel briefly displayed a floor designation absent from all architectural plans. The floor was labelled ZERO. No further access has been recorded."],
+    "body_b": ["Floor Zero is not missing from the plans. It has been removed from them, on three separate occasions, by three separate directives."],
+    "redactions": []
+  },
+  {
+    "id": "CCD-MP26",
+    "title": "MEMORY PLAGUE",
+    "date_time": "UNKNOWN",
+    "location": "Multiple",
+    "classification": "Level 5",
+    "publish_state": "published",
+    "unlock_requires": [],
+    "body_a": ["Multiple witnesses independently reported detailed memories of events that official records show never occurred."],
+    "body_b": ["Department B considers these memories accurate and the official records the falsified material."],
+    "redactions": []
+  }
+]

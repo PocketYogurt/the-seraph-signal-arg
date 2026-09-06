@@ -1,0 +1,24 @@
+{
+  "project_title": "The Seraph Signal",
+  "fictional_organisation": "Celestial Communications Department",
+  "system": "External Information System - Channel 7",
+  "primary_date": "1998-07-16",
+  "primary_incident_time": "02:17",
+  "mandatory_disclaimer": "This is an original fictional analog-horror project. This interface does not represent a real emergency service and does not collect real personal information.",
+  "visual_palette": {
+    "department_a": {
+      "bg": "#030705",
+      "panel": "#07110B",
+      "border": "#2F6440",
+      "signal": "#8FD19E",
+      "bright": "#D6FFE0"
+    },
+    "department_b": {
+      "bg": "#120405",
+      "panel": "#2A090B",
+      "border": "#743C3C",
+      "signal": "#C65B5B",
+      "bright": "#FFD6D6"
+    }
+  }
+}

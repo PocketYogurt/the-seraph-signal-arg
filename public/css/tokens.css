@@ -1,0 +1,32 @@
+:root {
+  /* Department A (default) */
+  --bg: #030705;
+  --panel: #07110B;
+  --border: #2F6440;
+  --signal: #8FD19E;
+  --bright: #D6FFE0;
+
+  --font-mono: "Courier New", "Liberation Mono", ui-monospace, monospace;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+
+  --radius: 2px;
+  --transition-fast: 120ms ease;
+  --transition-slow: 600ms ease;
+}
+
+body.department-b {
+  --bg: #120405;
+  --panel: #2A090B;
+  --border: #743C3C;
+  --signal: #C65B5B;
+  --bright: #FFD6D6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --transition-fast: 0ms; --transition-slow: 0ms; }
+}

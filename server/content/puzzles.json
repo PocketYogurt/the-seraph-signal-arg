@@ -1,0 +1,47 @@
+[
+  {
+    "id": "step_1",
+    "title": "THE 02:17 RECOVERY CHAIN",
+    "prompt": "JULY REMEMBERS WHAT THE DEPARTMENT FORGOT.",
+    "unlock_key": "incident",
+    "unlock_label": "Incident Report CCD-0217",
+    "hint_1": "The Department records a primary date and a recurring failure time. Combine them with no separators.",
+    "hint_2": "07-16-98 and 02:17, digits only, in that order."
+  },
+  {
+    "id": "step_2",
+    "title": "DR ELIAS VALE",
+    "prompt": "Something in Incident Report CCD-0217 spells a name.",
+    "unlock_key": "personnel",
+    "unlock_label": "Dr Elias Vale personnel record",
+    "hint_1": "Look at the first letter of each paragraph in the Department A version of the report.",
+    "hint_2": "Four paragraphs, four letters."
+  },
+  {
+    "id": "step_3",
+    "title": "AUDIO LABORATORY",
+    "prompt": "Dr Vale's personnel record contains a six-digit date.",
+    "unlock_key": "audio",
+    "unlock_label": "Audio Laboratory access",
+    "hint_1": "Check the date of entry field on Vale's record.",
+    "hint_2": "Format the date as six digits with no separators."
+  },
+  {
+    "id": "step_4",
+    "title": "THE RECOVERED FRAGMENT",
+    "prompt": "The recovered fragment does not play correctly forward.",
+    "unlock_key": "restricted",
+    "unlock_label": "Level 7 archive",
+    "hint_1": "Try the reverse control in the Audio Laboratory.",
+    "hint_2": "There is also a text-accessible decode control if you prefer not to rely on audio."
+  },
+  {
+    "id": "step_5",
+    "title": "LEVEL 7",
+    "prompt": "No further access key is required.",
+    "unlock_key": null,
+    "unlock_label": "Department B interface",
+    "hint_1": null,
+    "hint_2": null
+  }
+]

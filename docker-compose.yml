@@ -1,0 +1,24 @@
+services:
+  seraph-signal:
+    build: .
+    container_name: seraph-signal
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - SERAPH_ADMIN_PASSWORD=${SERAPH_ADMIN_PASSWORD}
+    ports:
+      # Bind to loopback only — Caddy on the host/VPS reverse-proxies to this,
+      # matching the existing HawkNet pattern. Adjust if this container's
+      # network setup differs (e.g. shared docker network with Caddy).
+      - "10.10.0.8:3010:3000"
+    volumes:
+      # Bind-mount content so the admin panel's edits (and any manual JSON
+      # edits) persist across container rebuilds without needing a re-build.
+      - ./server/content:/app/server/content
+      - ./server/private:/app/server/private
+      - ./server/secret-media:/app/server/secret-media
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/api/state').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

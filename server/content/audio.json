@@ -1,0 +1,26 @@
+[
+  {
+    "id": "vale-fragment-reversed",
+    "title": "RECOVERED FRAGMENT // SPEAKER UNVERIFIED",
+    "speaker": "Unverified",
+    "duration_seconds": 14,
+    "file": "vale-fragment-reversed.mp3",
+    "shown_transcript": "TRANSCRIPT UNAVAILABLE // WAVEFORM DAMAGED",
+    "manipulation_required": "reverse",
+    "accessibility_alternative": "A text-accessible decode control is available below the player. It does not require audio playback to use.",
+    "unlock_requires": ["audio"],
+    "publish_state": "published"
+  },
+  {
+    "id": "four-note-signal",
+    "title": "FOUR-NOTE SIGNAL // RECURRING",
+    "speaker": "Unknown",
+    "duration_seconds": 6,
+    "file": "four-note-signal.mp3",
+    "shown_transcript": "Non-verbal. Four-tone repeating pattern.",
+    "manipulation_required": "none",
+    "accessibility_alternative": "Tone pattern description: low, high, high, low.",
+    "unlock_requires": [],
+    "publish_state": "published"
+  }
+]

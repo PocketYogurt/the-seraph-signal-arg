@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Celestial Communications Department — External Information System</title>
+<meta name="description" content="Channel 7 recovery terminal. Fictional analog-horror archive." />
+<link rel="icon" href="/assets/branding/favicon.png" />
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/terminal.css" />
+<link rel="stylesheet" href="/css/components.css" />
+</head>
+<body>
+
+<div class="overlay-layer overlay-vignette" aria-hidden="true"></div>
+<div class="overlay-layer overlay-scanlines" aria-hidden="true"></div>
+<div class="overlay-layer overlay-static" aria-hidden="true"></div>
+
+<audio id="ui-beep" src="/assets/audio/terminal-beep.mp3" preload="auto"></audio>
+<audio id="sfx-correct" src="/assets/audio/correct.mp3" preload="auto"></audio>
+<audio id="sfx-incorrect" src="/assets/audio/incorrect.mp3" preload="auto"></audio>
+
+<!-- ============ BOOT / WARNING SCREEN ============ -->
+<div id="boot-screen">
+  <div class="boot-panel">
+    <h1>CELESTIAL COMMUNICATIONS DEPARTMENT</h1>
+    <p class="boot-line">EXTERNAL INFORMATION SYSTEM</p>
+    <p class="boot-line">CHANNEL 7 RECOVERY TERMINAL</p>
+    <p class="boot-line">CONNECTION STATUS: UNAUTHORISED</p>
+    <div class="boot-warning">
+      THIS TERMINAL CONTAINS COGNITIVELY UNSTABLE MATERIAL.<br />
+      DO NOT CONTINUE IF YOU RECOGNISE THE TRANSMISSION.
+    </div>
+    <div class="boot-actions">
+      <button id="acknowledge">ACKNOWLEDGE</button>
+      <button id="disconnect">DISCONNECT</button>
+    </div>
+    <p id="disconnect-message" role="status"></p>
+  </div>
+</div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <img id="header-logo" src="/assets/branding/seraph-logo.png" alt="Project Seraph emblem" />
+      <div class="brand-text">CCD // EIS CHANNEL 7<br />ARCHIVE STATE: <span id="dept-state">DEPARTMENT A</span></div>
+    </div>
+    <div class="brand-text" aria-live="polite">SYSTEM TIME <span id="system-time">02:17:00</span></div>
+  </div>
+  <div class="alert-bar" id="alert-bar"></div>
+  <nav class="main-nav" aria-label="Archive sections">
+    <button class="nav-item" data-page="transmissions">Transmissions</button>
+    <button class="nav-item" data-page="archive">Archive</button>
+    <button class="nav-item" data-page="incidents">Incidents</button>
+    <button class="nav-item" data-page="personnel">Personnel</button>
+    <button class="nav-item" data-page="audio">Audio Lab</button>
+    <button class="nav-item" data-page="level7">Level 7</button>
+    <button class="nav-item" data-page="receiver">Receiver Status</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ ACCESS CODE PANEL (always visible) ============ -->
+  <section class="panel">
+    <h2 class="page-title">ACCESS TERMINAL</h2>
+    <div class="code-panel">
+      <input type="text" id="access-code" placeholder="ENTER ACCESS KEY" aria-label="Access key" autocomplete="off" />
+      <button id="submit-code">SUBMIT</button>
+    </div>
+    <div id="code-response" role="status"></div>
+    <button class="hint-toggle" id="hint-toggle">Need a hint?</button>
+    <div class="hint-box" id="hint-box" hidden></div>
+  </section>
+
+  <!-- ============ TRANSMISSIONS ============ -->
+  <section id="page-transmissions" class="page">
+    <h2 class="page-title">Transmission Archive</h2>
+    <p class="page-intro">Recovered episode index. Public transmissions play from their original source. Secret transmissions remain sealed until restored.</p>
+    <div class="record-grid" id="transmission-list"></div>
+  </section>
+
+  <!-- ============ FULL ARCHIVE ============ -->
+  <section id="page-archive" class="page">
+    <h2 class="page-title">Full Transmission Index</h2>
+    <p class="page-intro">The complete recovered episode log. Most entries are pending recovery or awaiting a restored link.</p>
+    <div class="record-grid" id="archive-list"></div>
+  </section>
+
+  <!-- ============ INCIDENTS ============ -->
+  <section id="page-incidents" class="page">
+    <h2 class="page-title">Incident Archive</h2>
+    <p class="page-intro">Department A and Department B versions of the same events. Neither version should be assumed reliable.</p>
+    <div class="record-grid" id="incident-list"></div>
+  </section>
+
+  <!-- ============ PERSONNEL ============ -->
+  <section id="page-personnel" class="page">
+    <h2 class="page-title">Personnel Database</h2>
+    <p class="page-intro">Status may differ between archive versions. Contradictions are intentional.</p>
+    <div class="record-grid" id="personnel-list"></div>
+  </section>
+
+  <!-- ============ AUDIO LAB ============ -->
+  <section id="page-audio" class="page">
+    <h2 class="page-title">Audio Laboratory</h2>
+    <p class="page-intro">Play, pause, and reverse recovered fragments. A text-accessible decode control is provided for every clue.</p>
+    <div id="audio-list"></div>
+  </section>
+
+  <!-- ============ LEVEL 7 ============ -->
+  <section id="page-level7" class="page">
+    <h2 class="page-title">Level 7 Restricted Archive</h2>
+    <p class="page-intro">This section opens only after the current archive owner has been re-established.</p>
+    <div id="level7-content" class="panel">
+      <p class="system-note">LEVEL 7 ACCESS: LOCKED. Solve the recovery chain to continue.</p>
+    </div>
+  </section>
+
+  <!-- ============ RECEIVER STATUS ============ -->
+  <section id="page-receiver" class="page">
+    <h2 class="page-title">Receiver Status</h2>
+    <p class="page-intro">Local diagnostic only. No personal information is collected or transmitted.</p>
+    <div class="stat-grid">
+      <div class="stat-block"><div class="stat-value" id="receiver-id">—</div><div class="stat-label">Receiver ID</div></div>
+      <div class="stat-block"><div class="stat-value" id="first-contact">—</div><div class="stat-label">First local contact</div></div>
+      <div class="stat-block"><div class="stat-value" id="files-unlocked">0 / 4</div><div class="stat-label">Files unlocked</div></div>
+      <div class="stat-block"><div class="stat-value" id="exposure">3%</div><div class="stat-label">Exposure</div></div>
+      <div class="stat-block"><div class="stat-value" id="memory-state">UNCONFIRMED</div><div class="stat-label">Memory state</div></div>
+    </div>
+    <p class="system-note" style="margin-top:16px;">Progress is stored server-side against a random session identifier and mirrored to this browser only. No names, emails, device fingerprints or location data are collected.</p>
+    <button id="reset-progress" style="margin-top:8px;">RESET LOCAL PROGRESS</button>
+  </section>
+
+</main>
+
+<footer class="app-footer" id="footer-status">
+  THE SERAPH SIGNAL IS AN ORIGINAL FICTIONAL ANALOG-HORROR PROJECT. THIS SITE DOES NOT REPRESENT A REAL EMERGENCY SERVICE AND DOES NOT COLLECT REAL PERSONAL INFORMATION.
+  PUBLIC TRANSMISSIONS EMBEDDED ABOVE MAY LOAD THIRD-PARTY CONTENT FROM TIKTOK.
+</footer>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* ---- Record grid ---- */
+.record-grid { display: grid; gap: var(--space-2); }
+.record {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.record:hover, .record:focus-visible { border-color: var(--bright); transform: translateX(2px); }
+.record.expanded:hover { transform: none; }
+.record-id { font-size: 0.75rem; color: var(--border); }
+.record-title { color: var(--bright); font-size: 0.9rem; letter-spacing: 0.03em; }
+.record-meta { font-size: 0.7rem; text-align: right; opacity: 0.8; white-space: nowrap; }
+.record.locked { opacity: 0.55; cursor: default; }
+.record.locked:hover { transform: none; border-color: var(--border); }
+.record.locked .record-title::before { content: "\1F512 "; }
+
+.record.expanded { border-color: var(--bright); }
+.record.expanded .record-title::after { content: " \25B4"; } /* small up-caret while open */
+.record:not(.expanded):not(.locked) .record-title::after { content: ""; }
+
+.record-expand:empty { display: none; }
+.record-expand .record-detail {
+  border: 1px solid var(--bright);
+  border-top: none;
+  background: var(--panel);
+  padding: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+.record-expand .record-detail h3 { color: var(--bright); margin-top: 0; letter-spacing: 0.06em; font-size: 0.85rem; }
+
+@media (max-width: 560px) {
+  .record { grid-template-columns: 1fr; text-align: left; }
+  .record-meta { text-align: left; }
+}
+
+/* ---- Record detail view ---- */
+.record-detail { border: 1px solid var(--border); background: var(--panel); padding: var(--space-4); }
+.record-detail h3 { color: var(--bright); margin-top: 0; letter-spacing: 0.06em; }
+.field-row { display: grid; grid-template-columns: 160px 1fr; gap: var(--space-2); padding: 6px 0; border-bottom: 1px dashed color-mix(in srgb, var(--border) 60%, transparent); font-size: 0.85rem; }
+.field-label { color: var(--border); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em; }
+.close-detail { margin-top: var(--space-3); }
+
+.department-versions { display: grid; gap: var(--space-3); margin-top: var(--space-3); }
+@media (min-width: 700px) { .department-versions { grid-template-columns: 1fr 1fr; } }
+.department-version { border: 1px solid var(--border); padding: var(--space-2); }
+.department-version h4 { margin: 0 0 var(--space-1); font-size: 0.75rem; letter-spacing: 0.08em; }
+.department-version.a { border-color: #2F6440; }
+.department-version.b { border-color: #743C3C; }
+
+/* ---- Code entry panel ---- */
+.code-panel { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.code-panel input { flex: 1 1 220px; }
+#code-response { min-height: 1.4em; margin-top: var(--space-2); font-size: 0.85rem; color: var(--bright); }
+.hint-toggle { font-size: 0.75rem; background: none; border: none; text-decoration: underline; padding: 0; color: var(--signal); text-transform: none; }
+.hint-box { margin-top: var(--space-2); font-size: 0.8rem; opacity: 0.9; }
+
+/* ---- Audio lab ---- */
+.audio-controls { display: flex; gap: var(--space-2); flex-wrap: wrap; margin: var(--space-2) 0; }
+.audio-transcript { font-size: 0.8rem; border: 1px dashed var(--border); padding: var(--space-2); min-height: 1.4em; }
+
+/* ---- TikTok / transmission player frame ---- */
+.crt-frame {
+  position: relative;
+  border: 1px solid var(--border);
+  background: #000;
+  aspect-ratio: 9 / 16;
+  max-width: 340px;
+  overflow: hidden;
+}
+.crt-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 3px);
+  pointer-events: none;
+}
+.crt-frame iframe, .crt-frame video { width: 100%; height: 100%; border: 0; display: block; }
+.crt-frame .crt-label {
+  position: absolute; top: 6px; left: 6px;
+  font-size: 0.65rem; letter-spacing: 0.06em;
+  background: rgba(0,0,0,0.6); color: var(--bright);
+  padding: 2px 6px; z-index: 2;
+}
+.external-link { display: inline-block; margin-top: var(--space-2); font-size: 0.8rem; }
+
+/* ---- Receiver status ---- */
+.stat-grid { display: grid; gap: var(--space-2); grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.stat-block { border: 1px solid var(--border); padding: var(--space-3); text-align: center; }
+.stat-value { font-size: 1.4rem; color: var(--bright); }
+.stat-label { font-size: 0.7rem; letter-spacing: 0.06em; opacity: 0.8; }
+
+/* ---- Badges ---- */
+.badge { display: inline-block; font-size: 0.65rem; letter-spacing: 0.06em; border: 1px solid var(--border); padding: 2px 6px; margin-right: 4px; }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seraph Signal — Archive Editor</title>
+<link rel="stylesheet" href="/css/tokens.css" />
+<style>
+  body { background:#08120c; color:#8FD19E; font-family: "Courier New", monospace; margin:0; }
+  header { padding:16px 20px; border-bottom:1px solid #2F6440; display:flex; justify-content:space-between; align-items:center; }
+  main { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  select, textarea, input, button { font-family: inherit; background:#07110B; color:#8FD19E; border:1px solid #2F6440; padding:8px; }
+  textarea { width:100%; min-height:420px; font-size:13px; }
+  button { cursor:pointer; text-transform:uppercase; letter-spacing:0.04em; padding:8px 14px; }
+  button:hover { background:#2F6440; color:#08120c; }
+  .row { display:flex; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+  #login-screen { max-width:340px; margin: 80px auto; padding: 24px; border:1px solid #2F6440; text-align:center; }
+  #login-screen input { width:100%; margin-bottom:12px; }
+  .msg { min-height: 1.4em; font-size: 0.85rem; margin-top: 8px; }
+  .hidden { display:none; }
+  .note { font-size:0.78rem; opacity:0.75; margin-bottom: 16px; }
+  a { color:#8FD19E; }
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <h2>ARCHIVE EDITOR</h2>
+  <p class="note">Content management for The Seraph Signal. Access restricted to the project owner.</p>
+  <input type="password" id="password" placeholder="Admin password" />
+  <button id="login-btn">Log in</button>
+  <div class="msg" id="login-msg"></div>
+</div>
+
+<div id="editor-screen" class="hidden">
+  <header>
+    <strong>SERAPH ARCHIVE EDITOR</strong>
+    <span><a href="/" target="_blank">View site &rarr;</a></span>
+  </header>
+  <main>
+    <p class="note">
+      Edit a content type below as raw JSON, matching the structure documented in <code>ARG_Content_Templates.md</code>.
+      Puzzle answers are never shown or editable here — they live in the private solution sheet on the server and
+      are edited by hand, on purpose, to keep them out of anything web-accessible.
+    </p>
+    <div class="row">
+      <label for="content-type">Content type</label>
+      <select id="content-type">
+        <option value="transmissions">Transmissions</option>
+        <option value="incidents">Incidents</option>
+        <option value="personnel">Personnel</option>
+        <option value="audio">Audio</option>
+        <option value="puzzles">Puzzles (public hints only)</option>
+        <option value="canon">Canon</option>
+      </select>
+      <button id="load-btn">Load</button>
+      <button id="save-btn">Save</button>
+    </div>
+    <textarea id="content-editor" spellcheck="false"></textarea>
+    <div class="msg" id="editor-msg"></div>
+  </main>
+</div>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>
